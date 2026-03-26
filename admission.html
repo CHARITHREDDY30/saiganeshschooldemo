@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions 2026–27 | Sri Sai Ganesh Vidyalayam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0D2B45;
+            --navy-mid: #1A3F5C;
+            --saffron: #D4821A;
+            --saffron-light: #F0A845;
+            --cream: #FAF6EF;
+            --cream-dark: #F0E8D8;
+            --text: #1C1C1C;
+            --muted: #6B6258;
+            --border: rgba(212, 130, 26, 0.25);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.6; }
+
+        /* NAV */
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(250,246,239,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5vw; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 72px; max-width: 1400px; margin: 0 auto; }
+        .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .logo-emblem { width: 44px; height: 44px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .logo-emblem::before { content: ''; position: absolute; width: 100%; height: 50%; bottom: 0; background: var(--saffron); opacity: 0.6; }
+        .logo-emblem span { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: white; position: relative; z-index: 1; }
+        .logo-text strong { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: 0.02em; text-transform: uppercase; display: block; }
+        .logo-text small { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--saffron); letter-spacing: 0.15em; text-transform: uppercase; font-style: italic; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.25s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--saffron); transition: width 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--navy); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-cta { background: var(--navy) !important; color: white !important; padding: 10px 24px; border-radius: 3px; font-size: 12.5px !important; letter-spacing: 0.1em !important; }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--saffron) !important; }
+
+        /* PAGE HERO */
+        .page-hero { background: var(--navy); padding: 90px 8vw 80px; position: relative; overflow: hidden; }
+        .page-hero::before { content: 'Admissions'; position: absolute; right: 5vw; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 180px; font-weight: 900; color: rgba(255,255,255,0.04); white-space: nowrap; pointer-events: none; }
+        .page-hero-inner { max-width: 1400px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+        .breadcrumb a, .breadcrumb span { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--saffron-light); }
+        .breadcrumb i { font-size: 9px; color: rgba(255,255,255,0.25); }
+        .breadcrumb span { color: var(--saffron-light); }
+        .page-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .page-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--saffron); }
+        .page-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron-light); }
+        .page-title { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 60px); font-weight: 900; color: white; line-height: 1.1; }
+        .page-title em { font-style: italic; color: var(--saffron-light); }
+        .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; color: rgba(255,255,255,0.6); margin-top: 16px; max-width: 560px; line-height: 1.7; }
+
+        /* NOTICE BAND */
+        .notice-band { background: var(--saffron); padding: 16px 8vw; }
+        .notice-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+        .notice-text { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; color: white; }
+        .notice-text i { font-size: 16px; }
+        .notice-btn { background: white; color: var(--saffron); padding: 8px 22px; border-radius: 3px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: all 0.2s; }
+        .notice-btn:hover { background: var(--navy); color: white; }
+
+        /* MAIN LAYOUT */
+        .admissions-body { padding: 80px 8vw; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: start; }
+
+        /* STEPS */
+        .section-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .section-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--saffron); }
+        .section-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 2.5vw, 38px); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 40px; }
+        .section-title em { font-style: italic; color: var(--saffron); }
+
+        .steps-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 72px; }
+        .step-item { display: grid; grid-template-columns: 72px 1fr; gap: 0; position: relative; }
+        .step-item:not(:last-child) .step-line { position: absolute; left: 35px; top: 68px; bottom: -8px; width: 1px; background: var(--border); }
+        .step-num-col { display: flex; flex-direction: column; align-items: center; padding-top: 8px; }
+        .step-circle { width: 48px; height: 48px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; flex-shrink: 0; position: relative; z-index: 1; transition: background 0.3s; }
+        .step-item:hover .step-circle { background: var(--saffron); }
+        .step-content { padding: 4px 0 40px 24px; }
+        .step-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        .step-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 520px; }
+        .step-tag { display: inline-block; background: var(--cream-dark); color: var(--saffron); padding: 4px 12px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 12px; }
+
+        /* ELIGIBILITY */
+        .eligibility-table { width: 100%; border-collapse: collapse; margin-bottom: 72px; }
+        .eligibility-table thead tr { background: var(--navy); }
+        .eligibility-table thead th { padding: 16px 20px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+        .eligibility-table tbody tr { border-bottom: 1px solid var(--cream-dark); transition: background 0.2s; }
+        .eligibility-table tbody tr:hover { background: white; }
+        .eligibility-table td { padding: 18px 20px; font-size: 14px; color: var(--text); }
+        .eligibility-table td:first-child { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); font-size: 15px; }
+        .badge-open { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 3px 10px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+        .badge-limited { display: inline-block; background: #fff3e0; color: #e65100; padding: 3px 10px; border-radius: 2px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+
+        /* DOCS */
+        .docs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-bottom: 72px; }
+        .doc-item { background: white; padding: 20px 24px; display: flex; align-items: center; gap: 16px; border-left: 3px solid transparent; transition: all 0.25s; }
+        .doc-item:hover { border-left-color: var(--saffron); padding-left: 28px; }
+        .doc-icon { width: 40px; height: 40px; background: var(--cream); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--saffron); font-size: 16px; flex-shrink: 0; }
+        .doc-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .doc-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+        /* SIDEBAR */
+        .sidebar { display: flex; flex-direction: column; gap: 24px; }
+        .sidebar-card { background: white; border: 1px solid var(--cream-dark); border-radius: 4px; overflow: hidden; }
+        .sidebar-card-header { background: var(--navy); padding: 20px 24px; }
+        .sidebar-card-header h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: white; }
+        .sidebar-card-header p { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; }
+        .sidebar-card-body { padding: 24px; }
+        .form-group { margin-bottom: 16px; }
+        .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 6px; }
+        .form-input { width: 100%; padding: 11px 14px; border: 1.5px solid var(--cream-dark); border-radius: 3px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); transition: border-color 0.2s; outline: none; }
+        .form-input:focus { border-color: var(--saffron); background: white; }
+        .form-select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--cream-dark); border-radius: 3px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--cream); outline: none; cursor: pointer; transition: border-color 0.2s; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B6258' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+        .form-select:focus { border-color: var(--saffron); }
+        .btn-submit { width: 100%; background: var(--saffron); color: white; padding: 14px; border: none; border-radius: 3px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: 8px; }
+        .btn-submit:hover { background: var(--navy); }
+
+        .key-dates { display: flex; flex-direction: column; gap: 0; }
+        .date-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--cream-dark); }
+        .date-item:last-child { border-bottom: none; }
+        .date-box { background: var(--navy); color: white; padding: 8px 12px; border-radius: 3px; text-align: center; flex-shrink: 0; min-width: 54px; }
+        .date-box .month { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--saffron-light); }
+        .date-box .day { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; line-height: 1; }
+        .date-info .event { font-size: 14px; font-weight: 600; color: var(--navy); }
+        .date-info .detail { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+        .fee-list { display: flex; flex-direction: column; gap: 12px; }
+        .fee-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--cream-dark); }
+        .fee-item:last-child { border-bottom: none; }
+        .fee-name { font-size: 13.5px; color: var(--text); }
+        .fee-amount { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--navy); }
+        .fee-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--cream-dark); }
+
+        /* FAQ */
+        .faq-section { padding: 80px 8vw; background: var(--navy); }
+        .faq-inner { max-width: 1400px; margin: 0 auto; }
+        .faq-inner .section-eyebrow::before { background: var(--saffron); }
+        .faq-inner .section-eyebrow span { color: var(--saffron-light); }
+        .faq-inner .section-title { color: white; margin-bottom: 48px; }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+        .faq-item { background: rgba(255,255,255,0.05); padding: 28px 32px; border: 1px solid rgba(255,255,255,0.07); transition: background 0.2s; }
+        .faq-item:hover { background: rgba(255,255,255,0.08); }
+        .faq-q { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: white; margin-bottom: 10px; }
+        .faq-a { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+        /* FOOTER */
+        footer { background: #080F16; color: rgba(255,255,255,0.45); padding: 60px 8vw 32px; }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom-links { display: flex; gap: 24px; }
+        .footer-bottom-links a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+        .footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 1024px) {
+            .admissions-body { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .docs-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="ssgv_website.html" class="nav-logo">
+            <div class="logo-emblem"><span>SG</span></div>
+            <div class="logo-text">
+                <strong>Sri Sai Ganesh Vidyalayam</strong>
+                <small>Est. 1998 · Nurturing Excellence</small>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="ssgv_website.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html" class="active">Admissions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admissions.html" class="nav-cta">Apply Now</a></li>2
+        </ul>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <div class="breadcrumb">
+            <a href="SAIINDEX.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Admissions</span>
+        </div>
+        <div class="page-eyebrow"><span>2026–27 Academic Year</span></div>
+        <h1 class="page-title">Begin Your Child's<br><em>Journey With Us</em></h1>
+        <p class="page-subtitle">A simple, transparent process to give your child the best start. Seats are limited — apply early to secure your spot.</p>
+    </div>
+</section>
+
+<div class="notice-band">
+    <div class="notice-inner">
+        <div class="notice-text">
+            <i class="fa-solid fa-bell"></i>
+            <span>Admissions for 2026–27 are now open. Last date to apply: <strong>31st May 2026</strong></span>
+        </div>
+        <a href="#apply-form" class="notice-btn">Apply Online</a>
+    </div>
+</div>
+
+<div class="admissions-body">
+    <div class="main-content">
+
+        <!-- ADMISSION PROCESS -->
+        <div class="section-eyebrow"><span>How to Apply</span></div>
+        <h2 class="section-title">Our <em>Admission</em> Process</h2>
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-line"></div>
+                <div class="step-num-col"><div class="step-circle">1</div></div>
+                <div class="step-content">
+                    <div class="step-title">Submit Online Application</div>
+                    <p class="step-desc">Fill out the online inquiry form on the right or visit the school office. Basic details about your child and preferred class are required. No fee at this stage.</p>
+                    <span class="step-tag">Takes ~10 minutes</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-line"></div>
+                <div class="step-num-col"><div class="step-circle">2</div></div>
+                <div class="step-content">
+                    <div class="step-title">Receive Application Package</div>
+                    <p class="step-desc">After initial inquiry, the school will contact you within 2 working days with a formal application form, fee details, and a list of documents required.</p>
+                    <span class="step-tag">2 Working Days</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-line"></div>
+                <div class="step-num-col"><div class="step-circle">3</div></div>
+                <div class="step-content">
+                    <div class="step-title">Document Submission & Assessment</div>
+                    <p class="step-desc">Submit required documents at the school office. Students applying for Class II and above will have an informal interaction/assessment with our faculty.</p>
+                    <span class="step-tag">Interaction for Class II+</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-line"></div>
+                <div class="step-num-col"><div class="step-circle">4</div></div>
+                <div class="step-content">
+                    <div class="step-title">Admission Confirmation</div>
+                    <p class="step-desc">Upon selection, you will receive an admission offer letter. Confirm admission by paying the registration fee within 7 days to secure the seat.</p>
+                    <span class="step-tag">Seat Confirmed on Fee Payment</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num-col"><div class="step-circle">5</div></div>
+                <div class="step-content">
+                    <div class="step-title">Orientation & Welcome</div>
+                    <p class="step-desc">Attend the mandatory parent-student orientation session. Collect the uniform, books list, and school diary. Your child is now officially part of the SSGV family!</p>
+                    <span class="step-tag">Welcome to SSGV!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ELIGIBILITY -->
+        <div class="section-eyebrow"><span>Eligibility Criteria</span></div>
+        <h2 class="section-title">Class-wise Age & <em>Seat Availability</em></h2>
+        <table class="eligibility-table">
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Age as of 1st June 2026</th>
+                    <th>Seats Available</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Nursery</td><td>3 – 4 years</td><td>40 Seats</td><td><span class="badge-open">Open</span></td></tr>
+                <tr><td>LKG</td><td>4 – 5 years</td><td>40 Seats</td><td><span class="badge-open">Open</span></td></tr>
+                <tr><td>UKG</td><td>5 – 6 years</td><td>40 Seats</td><td><span class="badge-open">Open</span></td></tr>
+                <tr><td>Class I</td><td>6 – 7 years</td><td>60 Seats</td><td><span class="badge-open">Open</span></td></tr>
+                <tr><td>Class II – V</td><td>Age appropriate</td><td>10 Seats per class</td><td><span class="badge-limited">Limited</span></td></tr>
+                <tr><td>Class VI – VIII</td><td>Age appropriate</td><td>5 Seats per class</td><td><span class="badge-limited">Limited</span></td></tr>
+                <tr><td>Class IX</td><td>14 – 15 years</td><td>20 Seats</td><td><span class="badge-open">Open</span></td></tr>
+                <tr><td>Class XI (Sci/Com)</td><td>16 years+</td><td>40 Seats</td><td><span class="badge-open">Open</span></td></tr>
+            </tbody>
+        </table>
+
+        <!-- DOCUMENTS -->
+        <div class="section-eyebrow"><span>Documents Required</span></div>
+        <h2 class="section-title">What to <em>Bring</em></h2>
+        <div class="docs-grid">
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-id-card"></i></div>
+                <div><div class="doc-name">Birth Certificate</div><div class="doc-note">Original + 2 Photocopies</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-file-lines"></i></div>
+                <div><div class="doc-name">Previous Class Report Card</div><div class="doc-note">Class II onwards — last 2 years</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-file-certificate"></i></div>
+                <div><div class="doc-name">Transfer Certificate (TC)</div><div class="doc-note">From previous school, if applicable</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-camera"></i></div>
+                <div><div class="doc-name">Passport-size Photographs</div><div class="doc-note">4 recent photos of the student</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-house"></i></div>
+                <div><div class="doc-name">Address Proof</div><div class="doc-note">Aadhaar / Electricity Bill / Rental Agreement</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-users"></i></div>
+                <div><div class="doc-name">Parent Aadhaar & Photo ID</div><div class="doc-note">Both parents' ID copies required</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-shield"></i></div>
+                <div><div class="doc-name">Caste Certificate (if applicable)</div><div class="doc-note">For SC/ST/OBC fee concession</div></div>
+            </div>
+            <div class="doc-item">
+                <div class="doc-icon"><i class="fa-solid fa-syringe"></i></div>
+                <div><div class="doc-name">Immunisation Record</div><div class="doc-note">For Nursery – Class III</div></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-card" id="apply-form">
+            <div class="sidebar-card-header">
+                <h3>Enquire Now</h3>
+                <p>We'll get back to you within 24 hours</p>
+            </div>
+            <div class="sidebar-card-body">
+                <div class="form-group">
+                    <label class="form-label">Child's Full Name</label>
+                    <input type="text" class="form-input" placeholder="e.g. Arjun Sharma">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Applying for Class</label>
+                    <select class="form-select">
+                        <option>Select a class</option>
+                        <option>Nursery</option>
+                        <option>LKG</option>
+                        <option>UKG</option>
+                        <option>Class I</option>
+                        <option>Class II</option>
+                        <option>Class III</option>
+                        <option>Class IV</option>
+                        <option>Class V</option>
+                        <option>Class VI</option>
+                        <option>Class VII</option>
+                        <option>Class VIII</option>
+                        <option>Class IX</option>
+                        <option>Class X</option>
+                        <option>Class XI</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Parent / Guardian Name</label>
+                    <input type="text" class="form-input" placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mobile Number</label>
+                    <input type="tel" class="form-input" placeholder="+91 98765 43210">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="your@email.com">
+                </div>
+                <button class="btn-submit">Submit Enquiry</button>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <div class="sidebar-card-header">
+                <h3>Key Dates 2026–27</h3>
+                <p>Important admission timeline</p>
+            </div>
+            <div class="sidebar-card-body">
+                <div class="key-dates">
+                    <div class="date-item">
+                        <div class="date-box"><div class="month">Jan</div><div class="day">15</div></div>
+                        <div class="date-info"><div class="event">Admissions Open</div><div class="detail">Online applications begin</div></div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date-box"><div class="month">Mar</div><div class="day">20</div></div>
+                        <div class="date-info"><div class="event">School Open Day</div><div class="detail">Campus visit & interaction</div></div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date-box"><div class="month">May</div><div class="day">31</div></div>
+                        <div class="date-info"><div class="event">Last Date to Apply</div><div class="detail">Online applications close</div></div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date-box"><div class="month">Jun</div><div class="day">05</div></div>
+                        <div class="date-info"><div class="event">Offer Letters Sent</div><div class="detail">Selection results announced</div></div>
+                    </div>
+                    <div class="date-item">
+                        <div class="date-box"><div class="month">Jun</div><div class="day">15</div></div>
+                        <div class="date-info"><div class="event">Orientation Day</div><div class="detail">Welcome session for new students</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-card">
+            <div class="sidebar-card-header">
+                <h3>Fee Structure</h3>
+                <p>At a glance — 2026–27</p>
+            </div>
+            <div class="sidebar-card-body">
+                <div class="fee-list">
+                    <div class="fee-item"><span class="fee-name">Registration Fee</span><span class="fee-amount">₹ 500</span></div>
+                    <div class="fee-item"><span class="fee-name">Admission Fee (one-time)</span><span class="fee-amount">₹ 5,000</span></div>
+                    <div class="fee-item"><span class="fee-name">Tuition (Nursery–V)</span><span class="fee-amount">₹ 1,800/mo</span></div>
+                    <div class="fee-item"><span class="fee-name">Tuition (VI–X)</span><span class="fee-amount">₹ 2,400/mo</span></div>
+                    <div class="fee-item"><span class="fee-name">Tuition (XI–XII)</span><span class="fee-amount">₹ 3,200/mo</span></div>
+                </div>
+                <p class="fee-note">Fees subject to revision. Detailed fee structure provided in the admission package. Sibling discounts available.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <div class="faq-inner">
+        <div class="section-eyebrow"><span>Common Questions</span></div>
+        <h2 class="section-title">Frequently <em>Asked</em> Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-q">Is there an entrance exam for admission?</div>
+                <p class="faq-a">For Nursery to Class I, there is no formal exam. For Class II onwards, a friendly informal interaction with our teachers assesses the child's readiness — not to screen them out, but to place them appropriately.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I visit the school before applying?</div>
+                <p class="faq-a">Absolutely. We hold Open Days every month and also welcome scheduled visits throughout the week. Call our admissions office at +91 98765 43210 to book a tour.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Are there scholarships or fee concessions?</div>
+                <p class="faq-a">Yes. We offer concessions for SC/ST/OBC students, siblings of existing students, and children of teaching staff. Merit scholarships are available for students entering Class IX with outstanding results.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is the medium of instruction?</div>
+                <p class="faq-a">The primary medium of instruction is English. Telugu is offered as the second language. Hindi is compulsory as the third language up to Class VIII, as per CBSE norms.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Is transport facility available?</div>
+                <p class="faq-a">Yes, we operate school buses covering major areas of the city. Transport fees are charged separately. Please contact the school office for route and availability details.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is the refund policy if we withdraw?</div>
+                <p class="faq-a">The registration fee is non-refundable. Admission fee is refundable up to 30 days before the academic session begins, subject to a processing deduction as per school policy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-bottom">
+        <span>© 2026 Sri Sai Ganesh Vidyalayam. All Rights Reserved.</span>
+        <div class="footer-bottom-links">
+            <a href="SAIINDEX.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="academics.html">Academics</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

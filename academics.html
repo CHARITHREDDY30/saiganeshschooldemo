@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics | Sri Sai Ganesh Vidyalayam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0D2B45; --saffron: #D4821A; --saffron-light: #F0A845;
+            --cream: #FAF6EF; --cream-dark: #F0E8D8; --text: #1C1C1C;
+            --muted: #6B6258; --border: rgba(212,130,26,0.25);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--cream); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+        body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.6; }
+
+        /* NAV */
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(250,246,239,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5vw; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 72px; max-width: 1400px; margin: 0 auto; }
+        .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+        .logo-emblem { width: 44px; height: 44px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .logo-emblem::before { content: ''; position: absolute; width: 100%; height: 50%; bottom: 0; background: var(--saffron); opacity: 0.6; }
+        .logo-emblem span { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: white; position: relative; z-index: 1; }
+        .logo-text strong { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--navy); letter-spacing: .02em; text-transform: uppercase; display: block; }
+        .logo-text small { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--saffron); letter-spacing: .15em; text-transform: uppercase; font-style: italic; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; transition: color .25s; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px; background: var(--saffron); transition: width .3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--navy); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-cta { background: var(--navy) !important; color: white !important; padding: 10px 24px; border-radius: 3px; }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--saffron) !important; }
+
+        /* PAGE HERO */
+        .page-hero { background: var(--navy); padding: 90px 8vw 80px; position: relative; overflow: hidden; }
+        .page-hero::before { content: 'Academics'; position: absolute; right: 5vw; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 160px; font-weight: 900; color: rgba(255,255,255,0.04); white-space: nowrap; pointer-events: none; }
+        .page-hero-inner { max-width: 1400px; margin: 0 auto; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+        .breadcrumb a, .breadcrumb span { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--saffron-light); }
+        .breadcrumb i { font-size: 9px; color: rgba(255,255,255,0.25); }
+        .breadcrumb span { color: var(--saffron-light); }
+        .page-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .page-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--saffron); }
+        .page-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--saffron-light); }
+        .page-title { font-family: 'Playfair Display', serif; font-size: clamp(36px,4vw,60px); font-weight: 900; color: white; line-height: 1.1; }
+        .page-title em { font-style: italic; color: var(--saffron-light); }
+        .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; color: rgba(255,255,255,0.6); margin-top: 16px; max-width: 560px; line-height: 1.7; }
+
+        /* SECTION HELPERS */
+        .section-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .section-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--saffron); }
+        .section-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--saffron); }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px,2.5vw,38px); font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
+        .section-title em { font-style: italic; color: var(--saffron); }
+
+        /* PROGRAMS */
+        .programs-section { padding: 100px 8vw; background: var(--cream); }
+        .programs-inner { max-width: 1400px; margin: 0 auto; }
+        .programs-intro { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--muted); max-width: 540px; line-height: 1.75; margin-bottom: 56px; }
+        .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+        .program-card { background: white; overflow: hidden; transition: all .3s; }
+        .program-card:hover { box-shadow: 0 20px 64px rgba(13,43,69,0.12); transform: translateY(-4px); }
+        .program-card-top { background: var(--navy); padding: 36px 32px; position: relative; overflow: hidden; }
+        .program-card-top::after { content: attr(data-num); position: absolute; right: 16px; bottom: -12px; font-family: 'Playfair Display', serif; font-size: 80px; font-weight: 900; color: rgba(255,255,255,0.06); line-height: 1; }
+        .program-stage { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--saffron-light); margin-bottom: 10px; }
+        .program-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: white; }
+        .program-classes { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+        .program-card-body { padding: 28px 32px; }
+        .program-points { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+        .program-points li { display: flex; gap: 10px; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+        .program-points li::before { content: '◆'; color: var(--saffron); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+        .program-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--saffron); text-decoration: none; transition: gap .2s; }
+        .program-cta:hover { gap: 14px; }
+
+        /* CURRICULUM */
+        .curriculum-section { padding: 100px 8vw; background: white; }
+        .curriculum-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .subjects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin-top: 32px; }
+        .subject-card { background: var(--cream); padding: 20px 20px; border-left: 3px solid transparent; transition: all .25s; }
+        .subject-card:hover { border-left-color: var(--saffron); background: var(--cream-dark); padding-left: 24px; }
+        .subject-icon { font-size: 18px; color: var(--saffron); margin-bottom: 8px; }
+        .subject-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+        .subject-note { font-size: 12px; color: var(--muted); margin-top: 3px; }
+        .philosophy-list { display: flex; flex-direction: column; gap: 28px; margin-top: 32px; }
+        .phi-item { display: flex; gap: 20px; align-items: flex-start; }
+        .phi-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--cream-dark); line-height: 1; flex-shrink: 0; transition: color .3s; }
+        .phi-item:hover .phi-num { color: var(--saffron-light); }
+        .phi-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+        .phi-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+        /* FACILITIES */
+        .facilities-section { padding: 100px 8vw; background: var(--navy); }
+        .facilities-inner { max-width: 1400px; margin: 0 auto; }
+        .facilities-inner .section-eyebrow::before { background: var(--saffron); }
+        .facilities-inner .section-eyebrow span { color: var(--saffron-light); }
+        .facilities-inner .section-title { color: white; margin-bottom: 56px; }
+        .facilities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+        .facility-card { background: rgba(255,255,255,0.05); padding: 40px 28px; border: 1px solid rgba(255,255,255,0.07); transition: all .3s; text-align: center; }
+        .facility-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(212,130,26,0.35); transform: translateY(-4px); }
+        .facility-icon { width: 64px; height: 64px; background: rgba(212,130,26,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--saffron-light); margin: 0 auto 20px; }
+        .facility-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: white; margin-bottom: 10px; }
+        .facility-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+        /* CO-CURRICULAR */
+        .cocurricular-section { padding: 100px 8vw; background: var(--cream-dark); }
+        .cocurricular-inner { max-width: 1400px; margin: 0 auto; }
+        .activities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-top: 56px; }
+        .activity-card { background: white; padding: 36px 28px; border-top: 3px solid transparent; transition: all .3s; text-align: center; }
+        .activity-card:hover { border-top-color: var(--saffron); box-shadow: 0 16px 48px rgba(13,43,69,0.1); transform: translateY(-4px); }
+        .activity-icon { font-size: 30px; color: var(--navy); margin-bottom: 16px; transition: color .3s; }
+        .activity-card:hover .activity-icon { color: var(--saffron); }
+        .activity-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+        .activity-desc { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+        /* RESULTS */
+        .results-section { padding: 100px 8vw; background: white; }
+        .results-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+        .results-stats { display: flex; flex-direction: column; gap: 3px; }
+        .stat-block { padding: 36px; text-align: center; }
+        .stat-block:nth-child(1) { background: var(--navy); }
+        .stat-block:nth-child(2) { background: var(--saffron); }
+        .stat-block:nth-child(3) { background: var(--navy); }
+        .stat-block:nth-child(4) { background: var(--saffron); }
+        .stat-big { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 900; color: white; line-height: 1; }
+        .stat-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 8px; }
+        .results-table-wrap { margin-top: 0; }
+        .results-table-wrap .section-title { margin-bottom: 32px; }
+        table { width: 100%; border-collapse: collapse; }
+        thead tr { background: var(--navy); }
+        thead th { padding: 16px 20px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+        tbody tr { border-bottom: 1px solid var(--cream-dark); transition: background .2s; }
+        tbody tr:hover { background: var(--cream); }
+        td { padding: 18px 20px; font-size: 14px; color: var(--text); }
+        td:first-child { font-weight: 700; color: var(--navy); }
+        .bar-cell { display: flex; align-items: center; gap: 12px; }
+        .bar { height: 8px; border-radius: 4px; background: var(--saffron); transition: width .6s ease; }
+        .bar-pct { font-weight: 700; color: var(--navy); min-width: 42px; }
+
+        /* CTA */
+        .cta-band { background: var(--saffron); padding: 72px 8vw; }
+        .cta-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+        .cta-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px,2.5vw,36px); font-weight: 800; color: white; }
+        .cta-text p { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: rgba(255,255,255,0.8); margin-top: 8px; }
+        .btn-white { background: white; color: var(--saffron); padding: 14px 36px; border: none; border-radius: 3px; font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all .3s; white-space: nowrap; }
+        .btn-white:hover { background: var(--navy); color: white; }
+
+        footer { background: #080F16; color: rgba(255,255,255,0.45); padding: 40px 8vw; }
+        .footer-bottom { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: wrap; gap: 12px; }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color .2s; }
+        .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+        @media(max-width:1024px) {
+            .programs-grid { grid-template-columns: 1fr 1fr; }
+            .curriculum-inner { grid-template-columns: 1fr; gap: 48px; }
+            .facilities-grid { grid-template-columns: 1fr 1fr; }
+            .activities-grid { grid-template-columns: 1fr 1fr; }
+            .results-inner { grid-template-columns: 1fr; gap: 48px; }
+            .nav-links { display: none; }
+        }
+        @media(max-width:640px) {
+            .programs-grid { grid-template-columns: 1fr; }
+            .subjects-grid { grid-template-columns: 1fr; }
+            .activities-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="ssgv_website.html" class="nav-logo">
+            <div class="logo-emblem"><span>SG</span></div>
+            <div class="logo-text">
+                <strong>Sri Sai Ganesh Vidyalayam</strong>
+                <small>Est. 1998 · Nurturing Excellence</small>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="SAIINDEX.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html" class="active">Academics</a></li>
+            <li><a href="admission.html">Admissions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="admission.html" class="nav-cta">Apply Now</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <div class="breadcrumb">
+            <a href="SAIINDEX.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Academics</span>
+        </div>
+        <div class="page-eyebrow"><span>CBSE Curriculum · Nursery to Class XII</span></div>
+        <h1 class="page-title">Academic Excellence<br><em>At Every Stage</em></h1>
+        <p class="page-subtitle">A thoughtfully designed curriculum that challenges, inspires, and prepares students for life — not just examinations.</p>
+    </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section">
+    <div class="programs-inner">
+        <div class="section-eyebrow"><span>School Programs</span></div>
+        <h2 class="section-title">Learning Pathways for <em>Every Stage</em></h2>
+        <p class="programs-intro">From playful discovery in the early years to the rigour of board examinations — our programs grow with your child, ensuring no step is rushed and no potential is left untapped.</p>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-card-top" data-num="01">
+                    <div class="program-stage">Foundation Stage</div>
+                    <div class="program-name">Pre-Primary</div>
+                    <div class="program-classes">Nursery, LKG & UKG · Ages 3–6</div>
+                </div>
+                <div class="program-card-body">
+                    <ul class="program-points">
+                        <li>Play-based learning rooted in curiosity and joy</li>
+                        <li>Social-emotional development activities daily</li>
+                        <li>Early literacy and numeracy in a safe environment</li>
+                        <li>Art, music, movement, and storytelling integrated</li>
+                        <li>Monthly parent engagement sessions</li>
+                    </ul>
+                    <a href="admission.html" class="program-cta">Apply for Pre-Primary <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-card-top" data-num="02">
+                    <div class="program-stage">Building Stage</div>
+                    <div class="program-name">Primary School</div>
+                    <div class="program-classes">Classes I – V · Ages 6–11</div>
+                </div>
+                <div class="program-card-body">
+                    <ul class="program-points">
+                        <li>English, Telugu, Hindi, Maths, Science & Social Studies</li>
+                        <li>Smart board-enabled interactive classrooms</li>
+                        <li>Regular assessments with personalised feedback</li>
+                        <li>Reading & library programme twice a week</li>
+                        <li>Sports, art, and craft as timetabled subjects</li>
+                    </ul>
+                    <a href="admission.html" class="program-cta">Apply for Primary <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-card-top" data-num="03">
+                    <div class="program-stage">Developing Stage</div>
+                    <div class="program-name">Middle School</div>
+                    <div class="program-classes">Classes VI – VIII · Ages 11–14</div>
+                </div>
+                <div class="program-card-body">
+                    <ul class="program-points">
+                        <li>Full CBSE curriculum with dedicated science labs</li>
+                        <li>Computer science and coding from Class VI</li>
+                        <li>Introduction to project-based learning</li>
+                        <li>Debate, public speaking, and leadership clubs</li>
+                        <li>Career awareness and counselling sessions</li>
+                    </ul>
+                    <a href="admission.html" class="program-cta">Apply for Middle School <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-card-top" data-num="04">
+                    <div class="program-stage">Board Preparation</div>
+                    <div class="program-name">Secondary School</div>
+                    <div class="program-classes">Classes IX – X · Ages 14–16</div>
+                </div>
+                <div class="program-card-body">
+                    <ul class="program-points">
+                        <li>CBSE Class X Board curriculum — rigorous and structured</li>
+                        <li>Comprehensive doubt-clearing and revision programmes</li>
+                        <li>Full mock board exams every term with analysis</li>
+                        <li>Study skills workshops and exam strategy sessions</li>
+                        <li>Stream selection counselling for Class X students</li>
+                    </ul>
+                    <a href="admission.html" class="program-cta">Apply for Secondary <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-card-top" data-num="05">
+                    <div class="program-stage">Senior Stage</div>
+                    <div class="program-name">Senior Secondary</div>
+                    <div class="program-classes">Classes XI – XII · Ages 16–18</div>
+                </div>
+                <div class="program-card-body">
+                    <ul class="program-points">
+                        <li>Science: Physics, Chemistry, Biology / Mathematics</li>
+                        <li>Commerce: Accounts, Business Studies, Economics</li>
+                        <li>Integrated JEE / NEET / CA Foundation support</li>
+                        <li>Guest lectures by industry professionals</li>
+                        <li>University and career guidance programme</li>
+                    </ul>
+                    <a href="admission.html" class="program-cta">Apply for Senior Sec. <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="program-card" style="background: var(--navy);">
+                <div style="padding: 52px 32px; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                    <div style="font-family:'Playfair Display',serif; font-size: 26px; font-weight: 700; color: white; line-height: 1.35; margin-bottom: 16px;">Not sure which<br><em style="color: var(--saffron-light);">stream is right?</em></div>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 32px;">Book a free counselling session with our academic head to find the best path for your child's strengths and goals.</p>
+                    <a href="contact.html" style="background: var(--saffron); color: white; padding: 14px 28px; border-radius: 3px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; display: inline-block; width: fit-content; transition: background .3s;">Book Counselling</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CURRICULUM & APPROACH -->
+<section class="curriculum-section">
+    <div class="curriculum-inner">
+        <div>
+            <div class="section-eyebrow"><span>Subjects</span></div>
+            <h2 class="section-title">What Your Child <em>Learns</em></h2>
+            <p style="font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 8px;">A comprehensive suite of subjects across all grades, aligned with CBSE guidelines.</p>
+            <div class="subjects-grid">
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-calculator"></i></div><div class="subject-name">Mathematics</div><div class="subject-note">Conceptual & applied thinking</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-flask"></i></div><div class="subject-name">Science</div><div class="subject-note">Physics, Chemistry, Biology</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-book"></i></div><div class="subject-name">English</div><div class="subject-note">Language & Literature</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-landmark"></i></div><div class="subject-name">Social Science</div><div class="subject-note">History, Civics, Geography</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-globe"></i></div><div class="subject-name">Hindi & Telugu</div><div class="subject-note">Second & third languages</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-computer"></i></div><div class="subject-name">Computer Science</div><div class="subject-note">Coding, AI fundamentals</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-chart-line"></i></div><div class="subject-name">Business Studies</div><div class="subject-note">XI–XII Commerce stream</div></div>
+                <div class="subject-card"><div class="subject-icon"><i class="fa-solid fa-palette"></i></div><div class="subject-name">Arts & Crafts</div><div class="subject-note">Visual arts, design, crafts</div></div>
+            </div>
+        </div>
+        <div>
+            <div class="section-eyebrow"><span>Our Philosophy</span></div>
+            <h2 class="section-title"><em>How</em> We Teach</h2>
+            <div class="philosophy-list">
+                <div class="phi-item">
+                    <div class="phi-num">01</div>
+                    <div><div class="phi-title">Inquiry-Based Learning</div><p class="phi-desc">We encourage students to ask questions before we give answers. Labs, projects, and structured investigations make concepts genuinely stick.</p></div>
+                </div>
+                <div class="phi-item">
+                    <div class="phi-num">02</div>
+                    <div><div class="phi-title">Continuous & Comprehensive Evaluation</div><p class="phi-desc">Assessment isn't just end-of-term. Regular formative assessments, projects, and presentations give a complete picture of every child's progress.</p></div>
+                </div>
+                <div class="phi-item">
+                    <div class="phi-num">03</div>
+                    <div><div class="phi-title">Differentiated Instruction</div><p class="phi-desc">Our teachers are trained to recognise different learning styles and pace instruction to ensure no child is left behind or held back.</p></div>
+                </div>
+                <div class="phi-item">
+                    <div class="phi-num">04</div>
+                    <div><div class="phi-title">Technology-Integrated Classrooms</div><p class="phi-desc">Smart boards, educational apps, and AI-assisted tools supplement — never replace — the expertise of our dedicated teachers.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities-section">
+    <div class="facilities-inner">
+        <div class="section-eyebrow"><span>Infrastructure</span></div>
+        <h2 class="section-title">Built for <em>Inspired</em> Learning</h2>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-flask"></i></div>
+                <div class="facility-name">Science Labs</div>
+                <p class="facility-desc">Dedicated Physics, Chemistry & Biology labs with modern apparatus for hands-on experimentation from Class VI.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-computer"></i></div>
+                <div class="facility-name">Computer Lab</div>
+                <p class="facility-desc">60 high-speed workstations with access to coding platforms, educational software, and internet from Class IV.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                <div class="facility-name">Library</div>
+                <p class="facility-desc">Over 8,000 books, periodicals, and digital encyclopaedias. A dedicated silent reading space for all students.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-display"></i></div>
+                <div class="facility-name">Smart Classrooms</div>
+                <p class="facility-desc">All 48 classrooms equipped with interactive smart boards and multimedia learning tools for every subject.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-futbol"></i></div>
+                <div class="facility-name">Sports Grounds</div>
+                <p class="facility-desc">Football ground, cricket pitch, basketball & volleyball courts, and a 200-metre running track on campus.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-music"></i></div>
+                <div class="facility-name">Music & Dance</div>
+                <p class="facility-desc">Soundproofed rooms for vocal and instrumental music, and dedicated spaces for classical and contemporary dance.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="facility-name">Hygienic Canteen</div>
+                <p class="facility-desc">FSSAI-certified canteen serving nutritious, freshly prepared meals and healthy snack options every day.</p>
+            </div>
+            <div class="facility-card">
+                <div class="facility-icon"><i class="fa-solid fa-bus"></i></div>
+                <div class="facility-name">School Transport</div>
+                <p class="facility-desc">GPS-tracked buses covering all major routes in the city. Dedicated lady attendants for primary students.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CO-CURRICULAR -->
+<section class="cocurricular-section">
+    <div class="cocurricular-inner">
+        <div class="section-eyebrow"><span>Beyond the Classroom</span></div>
+        <h2 class="section-title">Co-Curricular <em>Activities</em></h2>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--muted); max-width:540px; line-height:1.75;">We believe the whole child is shaped in corridors and on fields just as much as in classrooms.</p>
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-futbol"></i></div>
+                <div class="activity-name">Sports</div>
+                <p class="activity-desc">Football, cricket, basketball, volleyball, athletics, chess, and carrom. Inter-school tournaments every year.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-music"></i></div>
+                <div class="activity-name">Music & Dance</div>
+                <p class="activity-desc">Carnatic vocals, keyboard, tabla, and Bharatanatyam. Annual cultural fest showcasing student talent.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-palette"></i></div>
+                <div class="activity-name">Visual Arts</div>
+                <p class="activity-desc">Drawing, painting, clay modelling, and craft. Annual art exhibition open to parents and the community.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-microphone"></i></div>
+                <div class="activity-name">Public Speaking</div>
+                <p class="activity-desc">Debate club, elocution competitions, and Model UN sessions for Classes VI and above.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="activity-name">Science & Robotics</div>
+                <p class="activity-desc">Science Olympiad preparation, robotics club, and participation in national-level STEM competitions.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-seedling"></i></div>
+                <div class="activity-name">Eco Club</div>
+                <p class="activity-desc">Environment awareness drives, school garden, composting, and participation in Green Schools initiative.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+                <div class="activity-name">Community Service</div>
+                <p class="activity-desc">NSS unit for Classes IX–XII, conducting outreach, blood donation drives, and neighbourhood clean-ups.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="activity-name">School Magazine</div>
+                <p class="activity-desc">Student-run annual magazine with articles, poetry, art, and photography — celebrating student voice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section">
+    <div class="results-inner">
+        <div>
+            <div class="section-eyebrow"><span>Achievements</span></div>
+            <h2 class="section-title"><em>Results</em> Speak</h2>
+            <div class="results-stats">
+                <div class="stat-block"><div class="stat-big">98%</div><div class="stat-label">Class X Pass Rate 2025</div></div>
+                <div class="stat-block"><div class="stat-big">94%</div><div class="stat-label">Class XII Pass Rate 2025</div></div>
+                <div class="stat-block"><div class="stat-big">42</div><div class="stat-label">Students scored 90%+ in Class X</div></div>
+                <div class="stat-block"><div class="stat-big">12</div><div class="stat-label">Students scored 95%+ in Class XII</div></div>
+            </div>
+        </div>
+        <div class="results-table-wrap">
+            <div class="section-eyebrow"><span>Year-wise Performance</span></div>
+            <h2 class="section-title">Board Exam <em>Track Record</em></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Class X Pass %</th>
+                        <th>Class XII Pass %</th>
+                        <th>Top Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2025</td><td><div class="bar-cell"><div class="bar" style="width:196px"></div><span class="bar-pct">98%</span></div></td><td><div class="bar-cell"><div class="bar" style="width:188px;background:var(--navy)"></div><span class="bar-pct">94%</span></div></td><td>99.2%</td></tr>
+                    <tr><td>2024</td><td><div class="bar-cell"><div class="bar" style="width:190px"></div><span class="bar-pct">95%</span></div></td><td><div class="bar-cell"><div class="bar" style="width:184px;background:var(--navy)"></div><span class="bar-pct">92%</span></div></td><td>98.8%</td></tr>
+                    <tr><td>2023</td><td><div class="bar-cell"><div class="bar" style="width:186px"></div><span class="bar-pct">93%</span></div></td><td><div class="bar-cell"><div class="bar" style="width:180px;background:var(--navy)"></div><span class="bar-pct">90%</span></div></td><td>98.4%</td></tr>
+                    <tr><td>2022</td><td><div class="bar-cell"><div class="bar" style="width:180px"></div><span class="bar-pct">90%</span></div></td><td><div class="bar-cell"><div class="bar" style="width:172px;background:var(--navy)"></div><span class="bar-pct">86%</span></div></td><td>97.6%</td></tr>
+                    <tr><td>2021</td><td><div class="bar-cell"><div class="bar" style="width:176px"></div><span class="bar-pct">88%</span></div></td><td><div class="bar-cell"><div class="bar" style="width:168px;background:var(--navy)"></div><span class="bar-pct">84%</span></div></td><td>97.2%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+    <div class="cta-inner">
+        <div class="cta-text">
+            <h2>Ready to Give Your Child the Best Start?</h2>
+            <p>Admissions for 2026–27 are open. Limited seats across all classes.</p>
+        </div>
+        <a href="admission.html" class="btn-white">Apply for Admission</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-bottom">
+        <span>© 2026 Sri Sai Ganesh Vidyalayam. All Rights Reserved.</span>
+        <div class="footer-links">
+            <a href="SAIINDEX.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="admission.html">Admissions</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
